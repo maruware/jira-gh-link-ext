@@ -11,7 +11,7 @@ const resultBadge = async (result) => {
   }
 }
 
-const urlPattern = /^https:\/\/.+\.atlassian\.net\/browse\/.+$/
+const urlPattern = /^https:\/\/.+\.atlassian\.net\/.+$/
 
 chrome.browserAction.onClicked.addListener((tab) => {
   if (tab.url && tab.url.match(urlPattern)) {
