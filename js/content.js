@@ -1,18 +1,19 @@
 function getContent() {
-  const titleEl = document.querySelector("h1[data-test-id='issue.views.issue-base.foundation.summary.heading']").textContent
+  const titleEl = document.querySelector("h1[data-test-id='issue.views.issue-base.foundation.summary.heading']")
   if (!titleEl) {
     return null
   }
   const title = titleEl.textContent
 
   const issueNoEl = document.querySelector(
-    "[data-test-id='issue.views.issue-base.foundation.breadcrumbs.breadcrumb-current-issue-container'] a span"
+    "[data-test-id='issue.views.issue-base.foundation.breadcrumbs.breadcrumb-current-issue-container'] a"
   )
   if (!issueNoEl) {
     return null
   }
   const issueName = issueNoEl.textContent
-  const pageUrl = location.href
+  const issuePath = issueNoEl.getAttribute('href')
+  const pageUrl = `${location.protocol}//${location.host}${issuePath}`
 
   const content = `[\\[${issueName}\\] ${title}](${pageUrl})`
   return content
