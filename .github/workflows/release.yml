@@ -29,4 +29,6 @@ jobs:
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
-          files: build/jira-md-link.crx
+          files: |
+            build/jira-md-link.crx
+            build/jira-md-link.zip
