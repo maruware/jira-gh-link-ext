@@ -5,7 +5,7 @@ function getContent() {
   ).textContent
   const pageUrl = location.href
 
-  const content = `[${issueName}](${pageUrl}) ${title}`
+  const content = `[\\[${issueName}\\] ${title}](${pageUrl})`
   return content
 }
 
