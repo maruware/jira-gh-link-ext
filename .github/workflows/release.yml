@@ -1,0 +1,32 @@
+name: crx artifacts to release
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      # pack zip and read manifest, can be reused in the following steps
+      - id: packExtensionDir
+        uses: cardinalby/webext-buildtools-pack-extension-dir-action@v1
+        with:
+          extensionDir: "extension"
+          zipFilePath: "build/extension.zip"
+
+      - uses: cardinalby/webext-buildtools-chrome-crx-action@v2
+        with:
+          # zip file made at the packExtensionDir step
+          zipFilePath: "build/jira-md-link.zip"
+          crxFilePath: "build/jira-md-link.crx"
+          privateKey: ${{ secrets.CHROME_CRX_PRIVATE_KEY }},
+
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: build/jira-md-link.crx
