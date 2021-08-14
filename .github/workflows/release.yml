@@ -16,8 +16,8 @@ jobs:
       - id: packExtensionDir
         uses: cardinalby/webext-buildtools-pack-extension-dir-action@v1
         with:
-          extensionDir: "extension"
-          zipFilePath: "build/extension.zip"
+          extensionDir: "."
+          zipFilePath: "build/jira-md-link.zip"
 
       - uses: cardinalby/webext-buildtools-chrome-crx-action@v2
         with:
