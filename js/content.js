@@ -1,12 +1,12 @@
 function getContent() {
-  const titleEl = document.querySelector("h1[data-test-id='issue.views.issue-base.foundation.summary.heading']")
+  const titleEl = document.querySelector("h1[data-testid='issue.views.issue-base.foundation.summary.heading']")
   if (!titleEl) {
     return null
   }
   const title = titleEl.textContent
 
   const issueNoEl = document.querySelector(
-    "[data-test-id='issue.views.issue-base.foundation.breadcrumbs.breadcrumb-current-issue-container'] a"
+    "[data-testid='issue.views.issue-base.foundation.breadcrumbs.breadcrumb-current-issue-container'] a"
   )
   if (!issueNoEl) {
     return null
