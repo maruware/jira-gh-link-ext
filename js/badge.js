@@ -8,7 +8,7 @@ const FLASH_BADGE_TIMEOUT = 3000 // ms
 function setBadgeText(text) {
   const string = String(text)
   return new Promise((resolve) =>
-    chrome.browserAction.setBadgeText(
+    chrome.action.setBadgeText(
       {
         text: string,
       },
@@ -18,7 +18,7 @@ function setBadgeText(text) {
 }
 function setBadgeBackgroundColor(color) {
   return new Promise((resolve) =>
-    chrome.browserAction.setBadgeBackgroundColor(
+    chrome.action.setBadgeBackgroundColor(
       {
         color,
       },

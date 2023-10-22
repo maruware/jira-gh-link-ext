@@ -1,4 +1,4 @@
-import { flashBadge } from './badge.js'
+import { flashBadge } from './js/badge.js'
 
 const resultBadge = async (result) => {
   switch (result) {
@@ -13,7 +13,7 @@ const resultBadge = async (result) => {
 
 const urlPattern = /^https:\/\/.+\.atlassian\.net\/.+$/
 
-chrome.browserAction.onClicked.addListener((tab) => {
+chrome.action.onClicked.addListener((tab) => {
   if (tab.url && tab.url.match(urlPattern)) {
     chrome.tabs.sendMessage(tab.id, { cmd: 'get-link' }, (response) => {
       resultBadge(response)
