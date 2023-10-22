@@ -32,6 +32,9 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
         sendResponse('success')
       })
       .catch((e) => {
+        if (e.message) {
+          window.alert(e.message)
+        }
         sendResponse('fail')
       })
   }
